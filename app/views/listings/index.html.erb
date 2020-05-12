@@ -5,9 +5,9 @@
 <%= form_tag(listings_path, method: "get") do %>
 <select name = listing[:role], class="form-control">
   <option value = "None">-Select-</option>
-  <option value = "None">-Price-</option>
   <option value = "None">-Title-</option>
   <option value = "None">-Category-</option>
+  <option value = "None">-Price-</option>
 </select><br> <br>
 <% end %>
 <% for listing in @listings %>
