@@ -35,55 +35,55 @@ listings = [
   {
     title: 'Scallop Shell Poppy in Red',
     category: 'Flowers',
-    price: '$35',
+    price: 35,
     description: 'Beautiful, hand-made poppy flower to add vibrancy to your garden. Made from scallop shells and fit together using construction grade glue, painted in a bright water-proof Red; these flowers are made for the outdoors. Fixed onto a solid steel stem, coated in waterproof Black.'
   },
   {
     title: 'Scallop Shell Poppy in Purple',
     category: 'Flowers',
-    price: '$35',
+    price: 35,
     description: 'Beautiful, hand-made poppy flower to add vibrancy to your garden. Made from scallop shells and fit together using construction grade glue, painted in a bright water-proof Purple; these flowers are made for the outdoors. Fixed onto a solid steel stem, coated in waterproof Black.' 
   },
   {
     title: 'Scallop Shell Poppy in Orange',
     category: 'Flowers',
-    price: '$35',
+    price: 35,
     description: 'Beautiful, hand-made poppy flower to add vibrancy to your garden. Made from scallop shells and fit together using construction grade glue, painted in a bright water-proof Orange; these flowers are made for the outdoors. Fixed onto a solid steel stem, coated in waterproof Black.' 
   },
   {
     title: 'Alice in Wonderland Statue Art',
     category: 'Figurines',
-    price: '$625 for the set of three',
+    price: 625,
     description: 'A trio of bronze hand-carved sculptues featuring characters from Alice In Wonderland, Dormouse, White Rabbit and the Mad Hatter.'
   },
   {
     title: 'Resting Buddha',
     category: 'Figurines',
-    price: '$125',
+    price: 125,
     description: 'Inspired from Ubud, Indonesia, this hand carved figurine statue is made from stone and represents peace and is a beuatiful addition to your garden.'
   },
   {
     title: 'Classic Garden Gnome',
     category: 'Figurines',
-    price: '$45',
+    price: 45,
     description: 'Classic wee colourful gnome, with his lovely Red hat and all. What would a garden be without one.'
   },
   {
     title: 'Anti-Social Sign',
     category: 'Signage',
-    price: '$40',
+    price: 40,
     description: 'For those who enjoy a peaceful garden. Hand-crafted and hand-scribbled wooden sign for the garden, ensuring tranquil surroundings.' 
   },
   {
     title: 'Oxygen For Sale Sign',
     category: 'Signage',
-    price: '$55',
+    price: 55,
     description: 'A serious sign for the garden, and a thoughtful concept. Black calligraphic style hand-writing on a metal slate, attached to rustic chain.' 
   },
   {
     title: 'Secretive Garden Sign',
     category: 'Signage',
-    price: '$35',
+    price: 35,
     description: 'Self-explanatory. A sign to show the way to a secret garden. Made from indistinct wood so as to not attract too much attention.' 
   }
 ]
