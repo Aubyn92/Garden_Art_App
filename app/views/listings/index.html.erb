@@ -1,5 +1,15 @@
 <%# NAVBAR UP HERE %>
 <h1>Browse Garden Art Listings</h1>
+<div class="container">
+<h3>Search by: </h3>
+<%= form_tag(listings_path, method: "get") do %>
+<select name = listing[:role], class="form-control">
+  <option value = "None">-Select-</option>
+  <option value = "None">-Price-</option>
+  <option value = "None">-Title-</option>
+  <option value = "None">-Category-</option>
+</select><br> <br>
+<% end %>
 <% for listing in @listings %>
 <div class="card">
   <%= image_tag listing.picture if listing.picture.attached? %>
