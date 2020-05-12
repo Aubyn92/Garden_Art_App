@@ -4,8 +4,8 @@
 <div class="card">
   <%= image_tag listing.picture if listing.picture.attached? %>
   <p><%= listing.title %></p>
-  <p><%= listing.category %></p>
   <p><%= listing.price %></p>
+  <p><%= listing.description %></p>
   <%= link_to "edit", edit_listing_path(listing.id) %>
 </div>
 <% end %>
