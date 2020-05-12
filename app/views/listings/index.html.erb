@@ -1,4 +1,11 @@
-<h1>Browse Listings</h1>
-<% @listings.each do |listing| %>
-<p><%= link_to listing.name, listing_path(restaurant)
+<%# NAVBAR UP HERE %>
+<h1>Browse Garden Art Listings</h1>
+<% for listing in @listings %>
+<div class="card">
+  <%= image_tag listing.picture if listing.picture.attached? %>
+  <p><%= listing.title %></p>
+  <p><%= listing.category %></p>
+  <p><%= listing.price %></p>
+  <%= link_to "edit", edit_listing_path(listing.id) %>
+</div>
 <% end %>
