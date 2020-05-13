@@ -1,6 +1,6 @@
 <h1><%= @listing.title %></h1>
 <p><%= @listing.description %></p>
-<p>Price: <%= number_to_currency(@listing.price / 100.0) %></p>
+<p>Price: <%= number_to_currency(@listing.deposit / 100.0) %></p>
 
 <div class="show-image">  
   <%= render "image-logic", listing: @listing %>
@@ -24,3 +24,26 @@
    <% end %>
    <%= link_to "Back", :back %>
  </div>
+
+<% if flash[:success] %>
+  <p><%= flash[:success] %></p>
+<% end %>
+
+<h1>Title: <%= @listing.title %></h1>
+<p>Description: <%= @listing.description %></p>
+<p>Price: <%= number_to_currency(@listing.deposit / 100.0) %></p>
+
+<div class="show-image">  
+  <%= render "image-logic", listing: @listing %>
+</div>
+
+<div class="show-edit-delete">
+  <% if current_user && current_user.id == @listing.user_id %>
+    <%= link_to "Edit", edit_listing_path(@listing.id) %>
+    <%= link_to "Delete", listing_path(@listing.id), method: :delete %>
+  <% end %>
+  <%= link_to "Pay Deposit", "", id: "stripe" %>
+  <%= link_to "Back", :back %>
+</div>
+
+<%= javascript_pack_tag "stripe" %>
