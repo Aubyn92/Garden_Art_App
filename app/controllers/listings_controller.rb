@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
     before_action :set_listing, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
     before_action :find_listing, only: [:show]
-    # load_and_authorize_resource
+    load_and_authorize_resource
   
     def index
       @listings_sold = Listing.where(sold: true)
