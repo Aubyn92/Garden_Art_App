@@ -5,27 +5,16 @@
   </button>
   <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <% if user_signed_in? %>
-<<<<<<< HEAD
-        <%= link_to 'View Listings', user_session_path, class: 'nav-item nav-link active' %>
-        <%= link_to 'Create Listing', new_listing_path, class: 'nav-item nav-link active' %>
-        <%= link_to 'Profile', new_listing_path, class: 'nav-item nav-link active' %>
-        <%= link_to 'Log Out', new_listing_path, class: 'nav-item nav-link active' %>
-=======
-        <%= link_to 'View Listings', listings_path, class: 'nav-item nav-link active' %>
-        <%= link_to 'Create Listing', new_listing_path, class: 'nav-item nav-link active' %>
-        <%= link_to 'Profile', new_listing_path, class: 'nav-item nav-link active' %>
-        <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'nav-item nav-link active' %>
->>>>>>> Stripe
-      <% end %> 
-    </div>
-    <div class="navbar-nav">
       <% unless user_signed_in? %>
         <%= link_to 'Register', new_user_registration_path, class: 'btn btn-outline-success ml-1' %>
         <%= link_to 'Login', new_user_session_path, class: 'btn btn-outline-success ml-1' %>
       <% else %>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger ml-1' %>
-      <% end %>
+        <%= link_to 'View Listings', listings_path, class: 'nav-item nav-link active' %>
+        <%= link_to 'Create Listing', new_listing_path, class: 'nav-item nav-link active' %>
+        <%= link_to 'Profile', new_listing_path, class: 'nav-item nav-link active' %>
+        <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'nav-item nav-link active' %>
+      <% end %> 
     </div>
+    
   </div>
 </nav>

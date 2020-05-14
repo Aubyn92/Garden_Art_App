@@ -89,8 +89,13 @@ listings = [
 ]
 
 listings.each do |listing|
-   listing = Listing.create(
+   listing = Listing.create
+   listing.picture.attach (
+     io: File.open("app/assets/images/dale_2.jpg"), 
+     filename: "dale_2.jpg", 
+     content_type: "image/jpg"
       title: listing[:title],
+      category: listing[:category],
       price: listing[:price],
       description: listing[:description],
       user_id: user_admin.id
