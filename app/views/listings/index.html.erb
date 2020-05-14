@@ -9,13 +9,16 @@
   <option value = "None">-Category-</option>
   <option value = "None">-Price-</option>
 </select><br> <br>
-<% end %>
+<% end %>       
+
+
 <% for listing in @listings %>
 <div class="card">
   <%= image_tag listing.picture if listing.picture.attached? %>
   <p><%= listing.title %></p>
-  <p><%= listing.price %></p>
+  <p>$<%= listing.price %></p>
   <p><%= listing.description %></p>
   <%= link_to "edit", edit_listing_path(listing.id) %>
 </div>
 <% end %>
+
