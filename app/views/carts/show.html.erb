@@ -1,0 +1,18 @@
+<h2>Cart show</h2>
+<ul>
+  <% @cart.cart_listings.each do |cart_listing| %>
+    <li>Item: <%= cart_listing.listing.title %>/ Price: <%= number_to_currency(cart_listing.listing.price) %>/ Quantity: <%= cart_listing.quantity %>/ Total Price: <%= number_to_currency(cart_listing.total_price) %>
+    <ul>
+      <li>
+        <%= link_to "Add one", cart_listing_add_path(:id => cart_listing), method: :post %>
+        <%= link_to "Reduce one", cart_listing_reduce_path(:id => cart_listing), method: :post %>
+      </li>
+      <li>
+        <%= link_to "Remove item", cart_listing_path(cart_listing), method: :delete %>
+      </li>
+    </ul>
+  <% end %>
+</ul>
+<h3>Sub total: <%= number_to_currency(@cart.sub_total) %></h3>
+<%= link_to "Proceed to checkout", new_order_path %><br>
+<%= link_to "Empty cart", cart_path(@current_cart),method: :delete, data: {confirm: "Are you sure?"}

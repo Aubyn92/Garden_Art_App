@@ -4,19 +4,14 @@
 
 <h1><%= @listing.title %></h1>
 <p><%= @listing.description %></p>
+<% @listings.each do |listing| %>
 <p>Price: <%= number_to_currency(@listing.price / 100.0)</p> %>
-
-
-
-<div class="show-edit-delete">
-  <% if current_user && current_user.id == @listing.user_id %>
-    <%= link_to "Edit", edit_listing_path(@listing.id) %>
-    <%= link_to "Delete", listing_path(@listing.id), method: :delete %>
-  <% end %>
-  <% if user_signed_in? && @listing.sold == false && @listing.user.id != current_user.id %>
-    <%= link_to "Add to cart", carts_path(listing_id: @listing.id), method: :post  %>
-  <% end %>
-  <%= link_to "Back", :back %>
-</div>
+<p>
+  <%= link_to "Edit", edit_listing_path(listing) %> |
+  <%= link_to "Delete", listing_path(listing), method: :delete, data: {confirm: "Are you sure?"} %>
+  <%= button_to "Add #{listing.title} to cart", cart_listings_path(:listing_id => listing.id) %>
+ </p>
+ <% end%>
+<%= link_to "New listing", new_listing_path
 
 <%= javascript_pack_tag "stripe" %>
