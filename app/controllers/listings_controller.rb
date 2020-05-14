@@ -1,7 +1,6 @@
 class ListingsController < ApplicationController
     before_action :set_listing, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-    before_action :find_listing, only: [:show]
     load_and_authorize_resource
   
     def index
@@ -47,20 +46,6 @@ class ListingsController < ApplicationController
     def destroy
       @listing.destroy
       redirect_to root_path
-    end
-
-    def self.where(where)
-        if where 
-            listings = Listing.all
-            # listings = listings.where(role: search[:":role"][","])
-            listings = listings.where(title: search[:":title"][","])
-            listings = listings.where(category: search[:":category"][","])
-            listings = listings.where(price: search[:":price"][","])
-            #byebug
-            return listings
-        else
-            Listing.all
-        end
     end
 
     private

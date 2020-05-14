@@ -1,7 +1,11 @@
 <%# NAVBAR UP HERE %>
+<% if flash[:unauthorized] %>
+  <p><%= flash[:unauthorized] %></p>
+<% end %>
+
 <h1>Browse Garden Art Listings</h1>
 <div class="container">
-<h3>Search by: </h3>
+<h5>Search by: </h5>
 <%= form_tag(listings_path, method: "get") do %>
 <select name = listing[:role], class="form-control">
   <option value = "None">-Select-</option>
@@ -9,16 +13,18 @@
   <option value = "None">-Category-</option>
   <option value = "None">-Price-</option>
 </select><br> <br>
-<% end %>       
+<% end %> 
 
 
 <% for listing in @listings %>
 <div class="card">
   <%= image_tag listing.picture if listing.picture.attached? %>
   <p><%= listing.title %></p>
+  <p><%= listing.category_id %></p>
   <p>$<%= listing.price %></p>
   <p><%= listing.description %></p>
-  <%= link_to "edit", edit_listing_path(listing.id) %>
 </div>
 <% end %>
+
+
 
