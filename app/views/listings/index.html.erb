@@ -1,4 +1,8 @@
 <%# NAVBAR UP HERE %>
+<% if flash[:unauthorized] %>
+  <p><%= flash[:unauthorized] %></p>
+<% end %>
+
 <h1>Browse Garden Art Listings</h1>
 <div class="container">
 <h3>Search by: </h3>
@@ -9,7 +13,11 @@
   <option value = "None">-Category-</option>
   <option value = "None">-Price-</option>
 </select><br> <br>
-<% end %>       
+<% end %> 
+
+<div class="listing-image">      
+  <%= render "image-logic", listing: listing %>
+</div>
 
 
 <% for listing in @listings %>
