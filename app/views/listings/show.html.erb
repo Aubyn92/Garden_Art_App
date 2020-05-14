@@ -4,11 +4,9 @@
 
 <h1><%= @listing.title %></h1>
 <p><%= @listing.description %></p>
-<p>Price: <%= number_to_currency(@listing.price / 100.0) %></p>
+<p>Price: <%= number_to_currency(@listing.price / 100.0)</p> %>
 
-<div class="show-image">  
-  <%= render "image-logic", listing: @listing %>
-</div>
+
 
 <div class="show-edit-delete">
   <% if current_user && current_user.id == @listing.user_id %>
