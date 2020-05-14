@@ -4,15 +4,7 @@ class ListingsController < ApplicationController
     load_and_authorize_resource
   
     def index
-      @listings_sold = Listing.where(sold: true)
-      @listings_unsold = Listing.where(sold: false)
-      if !session[:count]  
-        session[:count] = 1
-      else
-        session[:count] += 1
-      end
-    #   byebug
-      @listings = Listing.where(params[:listing])
+     @listings = Listing.all
     end
   
     def show
@@ -23,29 +15,39 @@ class ListingsController < ApplicationController
     end
   
     def create
-      @listing = current_user.listings.create(listing_params)
-      if @listing.errors.any?
-        render :new
-      else
-        flash[:success] = "You successfully created a new listing!"
-        redirect_to @listing
-      end 
+      # @listing = current_user.listings.create(listing_params)
+      @listing = Listing.create(product_params)
+      # if 
+      # @listing.errors.any?
+      # render :new
+      # else
+      # flash[:success] = "You successfully created a new listing!"
+      # redirect_to @listing
+      redirect_to listings_path
+      # end 
     end
   
     def edit
+      @listing = Listing.find(params[:id])
     end
   
     def update
-      if @listing.update(listing_params)
-        redirect_to listing_path(@listing.id)
-      else
-        render :edit
-      end 
+      # if @listing.update(listing_params)
+      #   redirect_to listing_path(@listing.id)
+      # else
+      #   render :edit
+      # end 
+      @listing = Listing.find(params[:id])
+      @listing.update(listing_params)
+      redirect_to listings_path
     end
   
     def destroy
+      # @listing.destroy
+      # redirect_to root_path
+      @listing = Listing.find(params[:id])
       @listing.destroy
-      redirect_to root_path
+      redirect_to listings_path
     end
 
     private

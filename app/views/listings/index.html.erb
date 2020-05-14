@@ -20,11 +20,14 @@
 <div class="card">
   <%= image_tag listing.picture if listing.picture.attached? %>
   <p><%= listing.title %></p>
-  <p><%= listing.category_id %></p>
   <p>$<%= listing.price %></p>
   <p><%= listing.description %></p>
 </div>
 <% end %>
+
+<%= button_to "Add #{listing.title} to cart", cart_listings_path(:listing_id => listing.id) %>
+
+
 
 
 
