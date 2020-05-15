@@ -5,7 +5,7 @@ class CartListingsController < ApplicationController
         current_cart = @current_cart
 
     if current_cart.listings.include?(chosen_listing)
-        @cart_listing = current_cart.cart_listings.find_by(:listing_id => chosen_listing)
+        @cart_listing = current_cart.cart_listings.find_by(listing_id:chosen_listing)
         @cart_listing.quantity += 1
     else
         @cart_listing = CartListing.new
@@ -13,7 +13,7 @@ class CartListingsController < ApplicationController
         @cart_listing.listing = chosen_listing
     end
         @cart_listing.save
-        redirect_to cart_path(current_cart)
+        redirect_to cart_path(@current_cart)
     end
 
     def add_quantity
@@ -35,7 +35,7 @@ class CartListingsController < ApplicationController
 
     def destroy
         @cart_listing = CartListing.find(params[:id])
-        @cart_listing.destroy
+        @cart_listing.destroy_user_session_path
         redirect_to cart_path(@current_cart)
     end
 

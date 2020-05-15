@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'welcome#index'
+  resources :listings
+  resources :orders
   get 'carts/:id', to: "carts#show", as: "cart"
   delete 'carts/:id', to: "carts#destroy"
 
@@ -10,8 +12,7 @@ Rails.application.routes.draw do
   get 'cart_listings/:id', to: "cart_listings#show", as: "cart_listing"
   delete 'cart_listings/:id', to: "cart_listings#destroy"
 
-  resources :listings
-  resources :orders
+
 
   get "/payments/session", to: "payments#get_stripe_id"
   get "/payments/success", to: "payments#success"

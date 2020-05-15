@@ -1,13 +1,28 @@
-<%= form_for(@listing) do |f| %>
+<%= form_for(@listing) do |form| %>
+
   <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title, required: true, autofocus: true, placeholder: "Enter listing name" %>
+    <%= form.label :title %><br>
+    <%= form.text_field :title, required: true, autofocus: true, placeholder: "Enter listing name" %>
   </p>
+
+
+
   <p>
-    <%= f.label :price %><br>
-    <%= f.number_field :price, required: true %>
+    <%= form.label :description %><br>
+    <%= form.text_field :description, class: 'form-control' %>
   </p>
+
   <p>
-    <%= f.submit %>
+    <%= form.label :price %>
+    <%= form.number_field :price, required: true %>
   </p>
-<% end
+
+  <div class="custom-file">
+    <%= form.label :picture, class: 'custom-file-label' %><br>
+    <%= form.file_field :picture, class: 'custom-file-input', id: 'customFile' %>
+  </div>
+
+  <p>
+    <%= form.submit class: 'btn btn-success my-2' %>
+  </p>
+<% end %>
