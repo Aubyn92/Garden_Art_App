@@ -16,14 +16,14 @@ class ListingsController < ApplicationController
   
     def create
       # @listing = current_user.listings.create(listing_params)
-      @listing = Listing.create(product_params)
+      @listing = Listing.create(listing_params)
       # if 
       # @listing.errors.any?
       # render :new
       # else
       # flash[:success] = "You successfully created a new listing!"
       # redirect_to @listing
-      redirect_to listings_path
+      redirect_to listing_path
       # end 
     end
   

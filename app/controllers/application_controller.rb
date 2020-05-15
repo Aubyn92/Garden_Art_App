@@ -2,9 +2,9 @@ class ApplicationController < ActionController::Base
     rescue_from CanCan::AccessDenied do |exception|
     flash[:authorization_error] = "Not authorized to perform that action ❌"
     redirect_to listings_path
+    before_action :current_cart
+
   end
-  
-  before_action :current_cart
 
   private
     def current_cart
