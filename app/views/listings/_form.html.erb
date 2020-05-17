@@ -5,15 +5,18 @@
     <%= form.text_field :title, required: true, autofocus: true, placeholder: "Enter listing name" %>
   </p>
 
-
-
   <p>
     <%= form.label :description %><br>
     <%= form.text_field :description, class: 'form-control' %>
   </p>
 
   <p>
-    <%= form.label :price %>
+    <%= form.label :category_id %><br>
+    <%= form.text_field :category_id, class: 'form-control' %>
+  </p>
+
+  <p>
+    <%= form.label :price %><br>
     <%= form.number_field :price, required: true %>
   </p>
 
@@ -26,3 +29,4 @@
     <%= form.submit class: 'btn btn-success my-2' %>
   </p>
 <% end %>
+

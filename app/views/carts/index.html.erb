@@ -1,11 +1,16 @@
-<h1>Your Shopping Cart</h1>
+<h1>Your Cart</h1>
 
 <ul>
-  <% @cart.each do |listing| %>
-    <li><%= listing.title %> | <%= number_to_currency(listing.deposit / 100.0) %></li>
+  <% @cart.listings.each do |listing| %>
+    <li>Item: <%= listing.title %> Price: <%= number_to_currency(listing.price /100.0) %> Quantity: <%= number_to_currency(listing.quantity /100.0) %> Total Price: <%= number_to_currency(listing.total_price /100.0)%></li>
   <% end %>
+
+  <li>
+    <%= link_to "Remove item", cart_listings_path(id: cart_listing), method: :post, class: 'btn btn-danger' %>
+  </li>
 </ul>
 
-<%= link_to "Pay Now", "", id: "stripe" %>
+<%= link_to "Proceed to checkout", "/payments/session", id: "stripe", class: 'btn btn-primary' %>
 
 <%= javascript_pack_tag "stripe" %>
+

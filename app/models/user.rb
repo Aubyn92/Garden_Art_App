@@ -6,4 +6,10 @@ class User < ApplicationRecord
   has_many :listings
   has_one :cart
   # has_secure_password
+  after_create :create_cart
+  private
+    def create_cart
+     cart = Cart.new(user: self)
+     cart.save
+    end
 end
