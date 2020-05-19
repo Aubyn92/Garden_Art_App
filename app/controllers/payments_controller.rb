@@ -7,7 +7,7 @@ class PaymentsController < ApplicationController
   end
  
   def webhook
-      payment_id= params[:data][:object][:payment_intent]
+      payment_id = params[:data][:object][:payment_intent]
       payment = Stripe::PaymentIntent.retrieve(payment_id)
       listing_ids = payment.metadata.listing_ids.split(",")
       listings = []
@@ -20,9 +20,6 @@ class PaymentsController < ApplicationController
       cart = user.carts.last
       cart.completed = true
       cart.save
-      # new_cart = Cart.create(completed: false, user_id: payment.metadata.user_id)
-      # p new_cart
-      #need to void the cart
       head 200
     end
     
@@ -34,7 +31,7 @@ class PaymentsController < ApplicationController
           description: listing.description,
           amount: listing.price,
           currency: 'aud',
-          quantity: 1
+          quantity: 1,
         }
     end
     listing_ids = @listings.pluck(:id).join(",")
@@ -45,11 +42,10 @@ class PaymentsController < ApplicationController
         payment_intent_data: {
           metadata: {
             user_id: current_user.id,
-            # cart_id: @cart.id
             listing_ids: listing_ids
             }
           },
-        success_url: "#{root_url}payments/success?userId=#{current_user.id}&listingIds=#{listing.ids}",
+        success_url: "#{root_url}payments/success?userId=#{current_user.id}&listingIds=#{listing_ids}",
         cancel_url: "#{root_url}listings"
         ).id
         render :json => {id: session_id, stripe_public_key: Rails.application.credentials.dig(:stripe, :public_key)}

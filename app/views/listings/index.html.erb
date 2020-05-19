@@ -5,18 +5,8 @@
 
 <div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<%= asset_path 'chi.jpg' %>); height: 100vh;">
   <h1>Browse Garden Art Listings</h1>
-  <div class="container">
-    <h5>Search by:</h5>
-      <%= form_tag(listings_path, method: "get") do %>
-      <select class="form-control" id="listing.category_id">
-      <option value="None">-Select-</option>
-      <option value="None">-Title-</option>
-      <option value="None">-Price-</option> </select> 
-      <br>
-     <br>
-    <% end %> 
-    <%= submit_tag("Search", :name => nil) %>
-    </div>
+
+
   <div class="row my-row">
     <% @listings.each do |listing| %> <%= render 'card', listing: listing %>
     <% end %>

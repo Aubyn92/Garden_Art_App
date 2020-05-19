@@ -9,6 +9,7 @@ class Listing < ApplicationRecord
     has_one_attached :picture
     has_many :carts, through: :cart_listings
 
+
   def price_display
     '$' + sprintf('%.2f', (self.price / 100.0))
   end

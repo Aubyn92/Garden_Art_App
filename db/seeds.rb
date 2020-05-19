@@ -78,4 +78,4 @@ puts "Listings successfully seeded"
 puts "Total number of listings: #{Listing.all.count}"
 puts "Listing titles: #{Listing.all.pluck("title")}"
 
-puts "\nTotal cart count: #{Cart.all.count}"
+# puts "\nTotal cart count: #{Cart.all.count}"
