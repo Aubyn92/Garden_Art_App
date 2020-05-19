@@ -11,7 +11,7 @@ puts "Seeded data successfully deleted"
 
 User.destroy_all
 puts "Seeding Users"
-user = User.create(email: 'admin@gardenart.com', password: 'password')
+user = User.create(email: 'admin@gardenart.com', password: 'password', admin: true)
 user_1 = User.create(email: 'user1@gardenart.com', password: 'password')
 user_2 = User.create(email: 'user2@gardenart.com', password: 'password')
 puts "Users successfully created"
