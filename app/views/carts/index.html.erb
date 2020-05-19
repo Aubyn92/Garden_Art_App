@@ -2,11 +2,11 @@
 
 <ul>
   <% @cart.each do |listing| %>
-    <li>Item: <%= listing.title %> <%= number_to_currency(listing.price) %></li>
+    <li><%= listing.title %> | <%= number_to_currency(listing.price) %></li>
   <% end %>
 </ul>
 
-<%= link_to "Proceed to checkout", "", id: "stripe", class: 'btn btn-primary' %>
+<%= link_to "Proceed to checkout", "", id: "stripe", class: 'success-btn' %>
 
 <%= javascript_pack_tag "stripe" %>
 

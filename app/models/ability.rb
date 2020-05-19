@@ -10,18 +10,7 @@ class Ability
     if user.admin == true 
       can [:index, :show, :new, :create, :destroy, :edit, :update], Listing
     end
-    # class Ability
-    #   include CanCan::Ability
-    #   def initialize(user)
-    #     user||=User.new
-    #     can [:index, :show], Dress
-    #     can [:index, :show, :new, :create], Shop
-    #     if user.shop != nil
-    #       can [:new, :create], Dress
-    #       can [:edit, :update, :destroy], Dress, shop_id: user.shop.id
-    #       can [:edit, :update, :destroy], Shop, user_id: user.id
-    #     end
-    #   end
+
 
     # can :read, Listing
     # can :read, Category

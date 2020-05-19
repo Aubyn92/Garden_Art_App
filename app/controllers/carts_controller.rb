@@ -12,7 +12,7 @@ def index
 end
 
 def create
-    if !current_user.carts.empty?
+    if current_user.carts.empty?
         cart = Cart.create(completed: false, user_id: current_user.id)
     else
         cart = current_user.carts.last
