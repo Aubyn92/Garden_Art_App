@@ -1,15 +1,8 @@
 <%# NAVBAR WILL BE HERE %>
 <%# <h1>About Us</h1> %>
-<div class = "banner">
-  <div class = "content">
-    <%# <div class="hero">
-    <%= image_tag "amanda.jpg", class: "amanda" %>
-<%# </div>  %>
-
-<h1>About Us</h1>
-  <p>As gardeners we love to incorporate creative pieces of art into our outdoor spaces to generate a feeling of vibrancy and individuality. We care to help you create your own beautiful aesthetic that reflects your own vision, making you feel right at home. This is our platform to share inspiring garden art pieces with you. <br><br>We hope you find what you're looking for.<br><br>The Garden Art Team</p>
-    <div class="sign-up-button">
-    <%= button_to "View Listings", listings_path, class:'btn btn-info', method: :get %>
-   </div>
-  </div>
+<div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<%= asset_path 'chi.jpg' %>); height: 100vh;">
+  <h1 class = "header">About Us</h1>
+    <p class = "info">As gardeners we love to incorporate creative pieces of art into our outdoor spaces to generate a feeling of vibrancy and individuality. We care to help you create your own beautiful aesthetic that reflects your own vision, making you feel right at home. This is our platform to share inspiring garden art pieces with you. <br><br>We hope you find what you're looking for.<br><br>The Garden Art Team</p>
+  <%= button_to "View Listings", listings_path, class:'sign-up-button', method: :get %>
 </div>
+ 

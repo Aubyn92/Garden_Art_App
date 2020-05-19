@@ -39,21 +39,7 @@ listings = [
     sold: false
   },
   {
-    title: 'Scallop Shell Poppy in Purple',
-    category_id: 1,
-    price: 35,
-    description: 'Beautiful, hand-made poppy flower to add vibrancy to your garden. Made from scallop shells and fit together using construction grade glue, painted in a bright water-proof Purple; these flowers are made for the outdoors. Fixed onto a solid steel stem, coated in waterproof Black.',
-    sold: false
-  },
-  {
-    title: 'Scallop Shell Poppy in Orange',
-    category_id: 1,
-    price: 35,
-    description: 'Beautiful, hand-made poppy flower to add vibrancy to your garden. Made from scallop shells and fit together using construction grade glue, painted in a bright water-proof Orange; these flowers are made for the outdoors. Fixed onto a solid steel stem, coated in waterproof Black.',
-    sold: false  
-  },
-  {
-    title: 'Alice in Wonderland Statue Art',
+    title: 'Alice in Wonderland Trio',
     category_id: 2,
     price: 625,
     description: 'A trio of bronze hand-carved sculptues featuring characters from Alice In Wonderland, Dormouse, White Rabbit and the Mad Hatter.',
@@ -67,31 +53,10 @@ listings = [
     sold: false
   },
   {
-    title: 'Classic Garden Gnome',
-    category_id: 2,
-    price: 45,
-    description: 'Classic wee colourful gnome, with his lovely Red hat and all. What would a garden be without one.',
-    sold: false
-  },
-  {
-    title: 'Anti-Social Sign',
-    category_id: 3,
-    price: 40,
-    description: 'For those who enjoy a peaceful garden. Hand-crafted and hand-scribbled wooden sign for the garden, ensuring tranquil surroundings.',
-    sold: false
-  },
-  {
-    title: 'Oxygen For Sale Sign',
-    category_id: 3,
-    price: 55,
-    description: 'A serious sign for the garden, and a thoughtful concept. Black calligraphic style hand-writing on a metal slate, attached to rustic chain.',
-    sold: false
-  },
-  {
-    title: 'Secretive Garden Sign',
+    title: 'Secret Garden Sign',
     category_id: 3,
     price: 35,
-    description: 'Self-explanatory. A sign to show the way to a secret garden. Made from indistinct wood so as to not attract too much attention.',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     sold: false
   }
 ]
@@ -103,10 +68,6 @@ listings.each do |listing|
      price: listing[:price],
      description: listing[:description],
      user_id: User.first.id
-    # listing.picture.attach(
-    #   io: File.open("app/assets/images/orange-pop.jpg"), 
-    #   filename: "red-pop.jpg", 
-    #   content_type: "image/jpg"
   )
   p listing
   p listing.errors.full_messages

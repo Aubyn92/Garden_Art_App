@@ -34,38 +34,83 @@
 //     margin: 20px 0px;
 //   }
 
-.listings-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .listings-form input[type=text] {
-    display: block;
-    height: 25px;
-    border: 1px solid black;
-    font-size: 20px;
-  }
-  
-  .listings-form select {
-    height: 25px;
-    border: 1px solid orangered;
-  }
-  
-  .listings-form label {
-    font-size: 20px;
-    margin: 10px 0px;
-  }
-  
-  .listings-form input[type=submit] {
-    display: block;
-    margin: 20px 0px;
-    border: 1px solid black;
-    padding: 20px 0px;
-    font-size: 20px;
-    -webkit-appearance: none;
-  }
-  
-  .form-errors {
-    border: 1px solid red;
-    margin: 20px 0px;
-  }
+.form-time {
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 20px 40px 20px 40px;
+  /* margin: 50px 40px 50px 570px; */
+  /* width: 450px; */
+  /* height: 500px; */
+  display: relative;
+  display: flex;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  align-items: center;
+  vertical-align: middle;
+  max-width: 500px;
+  max-height: 500px;
+  padding: 25px;
+  width: calc(100vw - 260px);
+}
+
+// .create-btn {
+//   display:flex;
+//   justify-content: center;
+//   background-color: limegreen;
+//   color: white;
+//   border: 1px solid #d5dfe2;
+//   border-radius: 20px;
+//   font-size: 18px;
+//   margin: 0 70px;
+// }
+
+.back-btn {
+  display:flex;
+  justify-content: center;
+  background-color: #e3f0f3;
+  color: white;
+  border: 1px solid #d5dfe2;
+  border-radius: 20px;
+  font-size: 18px;
+  margin: 0 70px;
+  color: #4f4a4e;
+ }
+
+
+// input[type=submit]:hover {
+//   background-color: limegreen;
+//   border-radius: 20px;
+// }
+
+input[type=submit] {
+  background-color: #d74625;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// .new_user {
+//   align-items: center;
+//   display: flex;
+//   margin: 10px;
+//   justify-content: center;
+// }
+
+// .field {
+//   align-items: center;
+//   display: flex;
+//   justify-content: center;
+//   margin: 10px;
+// }
+
+// .actions {
+//   align-items: center;
+//   display: flex;
+//   justify-content: center;
+// }

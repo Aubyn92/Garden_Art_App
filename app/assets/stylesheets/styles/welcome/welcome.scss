@@ -7,39 +7,52 @@
 //   background-size: 100%;
 // }
 
-// .banner {
-//   height: calc(100vh - 35px);
-//   width: 100%;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-// }
 
-// .listing-hero {
+// .chi-hero {
+//   height: 100vh;
 //   display: block;
 //   width: 100%;
+//   filter: brightness(45%);
 // }
 
-// .header h1 {
-//   font-size: 40px;
-//   word-wrap: break-word;
-//   background: white;
-// } 
+.button_to {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-// .header h3 {
-//   font-size: 25px;
-// }
+.info {
+  color: white;
+  position: block;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 60px;
+}
 
-// .sign-up-button {
-//   display: flex;
-//   justify-content: center;
-// }
+h1 {
+  color: white;
+  text-align:center;
+}
 
-// .sign-up-button form input {
-//   height: 50px;
-//   border: 1px solid black;
-//   background-color: orangered;
-//   font-size: 30px;
-//   color: white;
-//   cursor: pointer;
-// }
+h2, h3, h4 {
+  font-family: 'Playfair Display', serif;  
+  text-align: center;
+}
+
+p {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.sign-up-button {
+  display:flex;
+  // align-content:center;
+  justify-content: center;
+  background-color: #d74625;
+  color: white;
+  border: 1px solid #d5dfe2;
+  border-radius: 20px;
+  padding: 15px 30px 15px 30px;
+  width: 200px;
+  font-size: 18px;
+  margin: 20px 0px;
+}

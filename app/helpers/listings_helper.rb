@@ -9,7 +9,7 @@
 #     end    
 # end
 
-module ListingHelper
+module ListingsHelper
   def picture_for(listing)
     if listing.picture.present?
       listing.picture

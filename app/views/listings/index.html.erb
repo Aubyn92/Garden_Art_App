@@ -1,38 +1,29 @@
-<%# NAVBAR UP HERE %>
+<%# NAVBAR UP HERE %> 
 <% if flash[:unauthorized] %>
-  <p><%= flash[:unauthorized] %></p>
+<p><%= flash[:unauthorized] %></p>
 <% end %>
 
-<h1>Browse Garden Art Listings</h1>
-<div class="container">
-<h5>Search by: </h5>
-<%= form_tag(listings_path, method: "get") do %>
-<select name = listing[:role], class="form-control">
-  <option value = "None">-Select-</option>
-  <option value = "None">-Title-</option>
-  <option value = "None">-Category-</option>
-  <option value = "None">-Price-</option>
-</select><br> <br>
-<% end %> 
-
-<% for listing in @listings %>
-<div class = "card">
-<%= image_tag 'red-pop.jpg', alt: "#{listing.title} image", class: 'card-img-top img_fluid card-picture' %>
-  <p><%= listing.title %></p>
-  <p>$<%= listing.price %></p>
-  <p><%= listing.description %></p>
-<% end %>
-
-<div class="show-edit-delete">
-  <% if can? :edit, @listing %>
-    <%= link_to "Edit", edit_listing_path(@listing.id), class: 'btn btn-warning' %>
-    <%= link_to "Delete", listing_path(@listing.id), method: :delete, class: 'btn btn-danger' %>
-  <% end %>
-  <%= link_to "Back", listings_path, class: 'btn btn-outline-success' %>
+<div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<%= asset_path 'chi.jpg' %>); height: 100vh;">
+  <h1>Browse Garden Art Listings</h1>
+  <div class="container">
+    <h5>Search by:</h5>
+      <%= form_tag(listings_path, method: "get") do %>
+      <select class="form-control" id="listing.category_id">
+      <option value="None">-Select-</option>
+      <option value="None">-Title-</option>
+      <option value="None">-Price-</option> </select> 
+      <br>
+     <br>
+    <% end %> 
+    <%= submit_tag("Search", :name => nil) %>
+    </div>
+  <div class="row my-row">
+    <% @listings.each do |listing| %> <%= render 'card', listing: listing %>
+    <% end %>
+  </div>
 </div>
 
+<!-- <div class="main-page"> -->
 
-
-
-
-
+  <!-- </div> -->
+<!-- </div> -->
