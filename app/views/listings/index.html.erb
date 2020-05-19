@@ -1,36 +1,29 @@
-<%# NAVBAR UP HERE %>
+<%# NAVBAR UP HERE %> 
 <% if flash[:unauthorized] %>
-  <p><%= flash[:unauthorized] %></p>
+<p><%= flash[:unauthorized] %></p>
 <% end %>
 
-<h1>Browse Garden Art Listings</h1>
-<div class="container">
-<h5>Search by: </h5>
-<%= form_tag(listings_path, method: "get") do %>
-<select name = listing[:role], class="form-control">
-  <option value = "None">-Select-</option>
-  <option value = "None">-Title-</option>
-  <option value = "None">-Category-</option>
-  <option value = "None">-Price-</option>
-</select><br> <br>
-<% end %> 
-
-
-<% for listing in @listings %>
-<div class="card">
-  <%= picture_tag listing.picture if listing.picture.attached? %>
-  <p><%= listing.title %></p>
-  <p>$<%= listing.price %></p>
-  <p><%= listing.description %></p>
+<div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<%= asset_path 'chi.jpg' %>); height: 100vh;">
+  <h1>Browse Garden Art Listings</h1>
+  <div class="container">
+    <h5>Search by:</h5>
+      <%= form_tag(listings_path, method: "get") do %>
+      <select class="form-control" id="listing.category_id">
+      <option value="None">-Select-</option>
+      <option value="None">-Title-</option>
+      <option value="None">-Price-</option> </select> 
+      <br>
+     <br>
+    <% end %> 
+    <%= submit_tag("Search", :name => nil) %>
+    </div>
+  <div class="row my-row">
+    <% @listings.each do |listing| %> <%= render 'card', listing: listing %>
+    <% end %>
+  </div>
 </div>
-<%= link_to "Edit", edit_listing_path(listing) %> |
-<%= link_to "Delete", destroy_user_session_path(listing), method: :delete, data: {confirm: "Are you sure?"} %>
-<%= button_to "Add #{listing.title} to cart", cart_listings_path(:listing_id => listing.id) %>
 
-<% end %>
+<!-- <div class="main-page"> -->
 
-
-
-
-
-
+  <!-- </div> -->
+<!-- </div> -->

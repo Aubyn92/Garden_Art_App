@@ -1,0 +1,6 @@
+<h1>Categories!</h1>
+<%= form_tag category_index_path, :method => "get" do %>
+<%= label_tag(:search, "Which category would you like to choose from:") %>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag("Search", :name => nil) %>
+<% end %>

@@ -1,10 +1,18 @@
-<div class="card text-center my-3 col-md-4 col-xs-12" style="max-width:30%; min-width:18rem;">
-  <%= image_tag image_for(listing) , alt: "#{listing.title} image", class: 'card-img-top img_fluid' %>
-  <div class="card-body">
-    <h5 class="card-title"><%= listing.title %></h5>
-    <p class="card-text"><%= listing.description %></p>
-  </div>
-  <% relationship = current_user.users_listings.where(listing_id: listing.id) %>
-  <%= link_to 'View List',  users_listing_lists_path(users_listing_id: relationship.first[:id]) %>
-  <%# <%= button_to 'Delete', {controller: :users_locations, action: :destroy, users_location_id: relationship.first[:id], method: :delete} %>
+<div class="col-12 col-md-3">
+  <div class="card my-card">
+    <div class="card-image" style="background-image: url(<%= asset_path 'red-pop.jpg' %>); height: 200px; border-radius: 10px;"></div>
+      <h5 class="card-title"><%= listing.title %></h5>
+        <p class="card-text"><%= listing.description %></p>
+        <p>Price: <%= number_to_currency(listing.price) %></p>
+          <% if user_signed_in? %>
+          <% if current_user && current_user.id == listing.user_id %>
+          <%= link_to "Add to cart", carts_path(:listing_id => listing.id), class: 'success-btn' %>
+          <%= link_to 'Edit', edit_listing_path(listing), class: 'edit-btn'%>
+          <%= link_to 'Delete', listing_path(listing), method: :delete, class: 'danger-btn', data: { confirm: "Really delete #{listing.title}"} %>
+        <% end %>
+      <% end %>
+    </div>
 </div>
+
+
+

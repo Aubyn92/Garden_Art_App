@@ -2,16 +2,49 @@
   <p><%= flash[:success] %></p>
 <% end %>
 
-<h1><%= @listing.title %></h1>
-<p><%= @listing.description %></p>
-<% @listings.each do |listing| %>
-<p>Price: <%= number_to_currency(@listing.price / 100.0)</p> %>
-<p>
-  <%= link_to "Edit", edit_listing_path(listing) %> |
-  <%= link_to "Delete", destroy_user_session_path(listing), method: :delete, data: {confirm: "Are you sure?"} %>
-  <%= button_to "Add #{listing.title} to cart", cart_listings_path(:listing_id => listing.id) %>
- </p>
- <% end%>
-<%= link_to "New listing", new_listing_path
+<div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<%= asset_path 'chi.jpg' %>); height: 100vh;">
+  <div class="row my-row">
+    <% @listings.each do |listing| %> 
+    <%= render 'card', listing: listing %>
+    <% end %>
+  </div>
+</div>
 
-<%= javascript_pack_tag "stripe" %>
+<div class="col-md-8">
+  <h1><%= @listing.title %></h1>
+    <p><%= @listing.description %></p>
+    <p>Price: <%= number_to_currency(@listing.price) %></p>
+      <% if user_signed_in? %>
+      <% if current_user.admin == true then @location %>
+      <%= link_to "Add to cart", carts_path(:listing_id => @listing.id), class: 'success-btn' %>
+      <%= link_to 'Edit', edit_listing_path(@listing), class: 'edit-btn'%>
+      <%= link_to 'Delete', listing_path(@listing), method: :delete, class: 'danger-btn', data: { confirm: "Really delete #{@listing.title}"} %>
+     <% end %>
+    <% end %>
+   <%= link_to 'Back', listings_path, class: 'back-btn' %> 
+</div>
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

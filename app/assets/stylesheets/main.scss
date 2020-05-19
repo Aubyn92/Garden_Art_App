@@ -1,14 +1,8 @@
-// .hero {
-//     width: 200px;
-//     height: 200px;
-//     background-image: url(image-path("hero.png"));
-//     background-size: cover;
-//   }
-
 // @import "base/globals";
 // @import "styles/shared/nav";
-// @import "styles/pages/home";
-// @import "styles/listings/index";
-// @import "styles/listings/form";
-// @import "styles/listings/show";
+@import "styles/welcome/welcome";
+// @import "styles/listings/_card";
+@import "styles/listings/index";
+@import "styles/listings/form";
+@import "styles/listings/show";
 // @import "styles/shared/backup-image";

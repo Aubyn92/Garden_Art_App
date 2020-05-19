@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :listings
-  has_one :cart
-  # has_secure_password
+  has_many :carts
+ 
 end

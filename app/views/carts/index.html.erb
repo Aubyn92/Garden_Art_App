@@ -1,11 +1,12 @@
-<h1>Your Shopping Cart</h1>
+<h1>Your Cart</h1>
 
 <ul>
   <% @cart.each do |listing| %>
-    <li><%= listing.title %> | <%= number_to_currency(listing.deposit / 100.0) %></li>
+    <li>Item: <%= listing.title %> <%= number_to_currency(listing.price) %></li>
   <% end %>
 </ul>
 
-<%= link_to "Pay Now", "", id: "stripe" %>
+<%= link_to "Proceed to checkout", "", id: "stripe", class: 'btn btn-primary' %>
 
 <%= javascript_pack_tag "stripe" %>
+
