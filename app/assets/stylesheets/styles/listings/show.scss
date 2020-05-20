@@ -38,11 +38,11 @@
   display:flex;
   justify-content: center;
   background-color: #e3f0f3;
-  color: white;
+  // color: white;
   border: 1px solid #d5dfe2;
   border-radius: 20px;
   font-size: 18px;
-  margin: 0 70px;
+  // margin: 0 70px;
   color: #4f4a4e;
 }
 
@@ -58,8 +58,12 @@ box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .card-text {
-font-size: 80%;
+font-size: 85%;
 color: #4f4a4e;
+}
+
+.form-text-color {
+  color: #d74625;
 }
 
 // .banner {

@@ -24,15 +24,20 @@
 .info {
   color: white;
   position: block;
-  font-size: 20px;
+  font-size: 30px;
   text-align: center;
-  margin-top: 60px;
+  margin-top: 250px;
 }
 
+.header {
+  font-family: 'Playfair Display', serif;
+  padding: 20px;
+}
 
 h1 {
   color: white;
   text-align:center;
+  font-family: 'Playfair Display', serif;  
 }
 
 h2, h3, h4 {
@@ -57,3 +62,4 @@ p {
   font-size: 18px;
   margin: 20px 0px;
 }
+
