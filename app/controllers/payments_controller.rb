@@ -7,33 +7,34 @@ class PaymentsController < ApplicationController
   end
  
   def webhook
-      payment_id = params[:data][:object][:payment_intent]
-      payment = Stripe::PaymentIntent.retrieve(payment_id)
-      listing_ids = payment.metadata.listing_ids.split(",")
-      listings = []
-      listing_ids.each do |id|
-        listing = Listing.find(id)
-        listing.sold = true
-        listing.save
+    payment_id = params[:data][:object][:payment_intent]
+    payment = Stripe::PaymentIntent.retrieve(payment_id)
+    listing_ids = payment.metadata.listing_ids.split(",")
+    listings = []
+    listing_ids.each do |id|
+      listing = Listing.find(id)
+      listing.sold = true
+      listing.save
     end
-      user = User.find(payment.metadata.user_id)
-      cart = user.carts.last
-      cart.completed = true
-      cart.save
-      head 200
-    end
+    user = User.find(payment.metadata.user_id)
+    cart = user.carts.last
+    cart.completed = true
+    cart.save
+    head 200
+  end
     
-    def get_stripe_id
-      @listings = current_user.carts.last.listings
-      line_items = @listings.map do |listing|
-        {
-          title: listing.title,
-          description: listing.description,
-          amount: listing.price,
-          currency: 'aud',
-          quantity: 1,
-        }
+  def get_stripe_id
+    @listings = current_user.carts.last.listings
+    line_items = @listings.map do |listing|
+      {
+        name: listing.title,
+        description: listing.description,
+        amount: listing.price,
+        currency: 'aud',
+        quantity: 1,
+      }
     end
+  
     listing_ids = @listings.pluck(:id).join(",")
     session_id = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
