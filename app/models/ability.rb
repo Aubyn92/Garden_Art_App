@@ -7,7 +7,7 @@ class Ability
     user ||= User.new
     can [:index, :show, :new, :create], Listing
     can [:edit, :update, :destroy], Listing, user_id: user.id
-    if user.admin == true 
+    if user_signed_in? && user.admin == true 
       can [:index, :show, :new, :create, :destroy, :edit, :update], Listing
     end
 
