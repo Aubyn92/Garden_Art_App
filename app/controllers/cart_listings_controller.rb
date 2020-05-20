@@ -45,3 +45,4 @@ class CartListingsController < ApplicationController
 #     params.require(:cart_listing).permit(:quantity,:listing_id, :cart_id)
 #   end
 # end
+end
