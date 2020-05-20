@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_19_134806) do
+ActiveRecord::Schema.define(version: 2020_05_19_104213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,11 +40,9 @@ ActiveRecord::Schema.define(version: 2020_05_19_134806) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "quantity"
-    t.integer "listing_id", null: false
-    t.integer "cart_id", null: false
+    t.integer "listing_id"
+    t.integer "cart_id"
     t.integer "order_id"
-    t.index ["cart_id"], name: "index_cart_listings_on_cart_id"
-    t.index ["listing_id"], name: "index_cart_listings_on_listing_id"
   end
 
   create_table "carts", force: :cascade do |t|
@@ -69,23 +67,8 @@ ActiveRecord::Schema.define(version: 2020_05_19_134806) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.bigint "category_id", null: false
-    t.boolean "sold", default: false
     t.index ["category_id"], name: "index_listings_on_category_id"
     t.index ["user_id"], name: "index_listings_on_user_id"
-  end
-
-  create_table "options", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.text "address"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "pay_method"
   end
 
   create_table "users", force: :cascade do |t|
@@ -102,8 +85,6 @@ ActiveRecord::Schema.define(version: 2020_05_19_134806) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "cart_listings", "carts"
-  add_foreign_key "cart_listings", "listings"
   add_foreign_key "carts", "users"
   add_foreign_key "listings", "categories"
   add_foreign_key "listings", "users"
