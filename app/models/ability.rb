@@ -7,10 +7,9 @@ class Ability
     user ||= User.new
     can [:index, :show, :new, :create], Listing
     can [:edit, :update, :destroy], Listing, user_id: user.id
-    if user.try(:admin) && user.admin 
+    if user.try(:admin) && user.admin
       can [:index, :show, :new, :create, :destroy, :edit, :update], Listing
     end
-
 
     # can :read, Listing
     # can :read, Category
@@ -25,17 +24,15 @@ class Ability
     #   end
     # end
 
-
     # Define abilities for the passed in user here. For example:
     #
-      # user ||= User.new # guest user (not logged in)
+    # user ||= User.new # guest user (not logged in)
     #   if user.admin?
     #     can :manage, :all
     #   else
     #     can :read, :all
     # end
- 
-    
+
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions

@@ -59,3 +59,5 @@ gem 'devise'
 gem "stripe", "~> 5.22"
 
 gem "aws-sdk-s3", "~> 1.64"
+
+gem "rubocop-rails"
