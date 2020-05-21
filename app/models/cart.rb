@@ -4,6 +4,3 @@ class Cart < ApplicationRecord
   has_many :listings, through: :cart_listings
 end
 
-def price_display(price)
-  '$' + sprintf('%.2f', (price / 100.0))
-end

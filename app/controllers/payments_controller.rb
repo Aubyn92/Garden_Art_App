@@ -29,7 +29,7 @@ class PaymentsController < ApplicationController
       {
         name: listing.title,
         description: listing.description,
-        amount: listing.price,
+        amount: listing.price * 100,
         currency: 'aud',
         quantity: 1,
       }

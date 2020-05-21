@@ -1,7 +1,7 @@
 <h1>Your Cart</h1>
 
 <ul>
-  <% @cart.each do |listing| %>
+  <% @cart.each do |listing| %>  <!--iterating over array of listing items for placement in cart and doing a currency conversion method to display the price correctly-->
     <li><%= listing.title %> | <%= number_to_currency(listing.price) %></li>
   <% end %>
 </ul>
