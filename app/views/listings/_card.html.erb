@@ -1,6 +1,6 @@
 <div class="col-12 col-md-3">
   <div class="card my-card">
-    <div class="card-image" style="background-image: url(<%= asset_path 'red-pop.jpg' %>); height: 200px; border-radius: 10px;"></div>
+    <div class="card-image" style="background-image: url(<%= url_for picture_for(listing) %>); height: 200px; border-radius: 10px;"></div>
       <h5 class="card-title"><%= listing.title %></h5>
         <p class="card-text"><%= listing.description %></p>
         <p>Price: <%= number_to_currency(listing.price) %></p>
